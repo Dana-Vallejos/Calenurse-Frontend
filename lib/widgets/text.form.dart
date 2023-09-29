@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:nssystem/utils/global.colors.dart';
 
-class TextForm extends StatelessWidget {
-  const TextForm({
+class TextFormWidget extends StatelessWidget {
+  const TextFormWidget({
     super.key,
     required this.text,
     required this.obscure,

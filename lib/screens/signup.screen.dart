@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nssystem/screens/homepage.dart';
-import 'package:nssystem/screens/signup.screen.dart';
 import 'package:nssystem/utils/global.colors.dart';
 import 'package:nssystem/widgets/button.dart';
 import 'package:nssystem/widgets/text.form.dart';
 
-class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,73 +23,79 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Image(
+                Image(
                   image: AssetImage('assets/images/calendurse1.png'),
                   width: 150,
                 ),
-                const SizedBox(
-                  height: 50,
+                SizedBox(
+                  height: 10,
                 ),
                 //hELLO AGAIN
                 Text(
-                  'Iniciar sesión',
+                  'Registro',
                   style: TextStyle(
                     color: GlobalColors.textColor,
                     fontSize: 36,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 20,
                 ),
                 //eMAIL TEXT
-                const TextFormWidget(
-                  text: 'Email',
+                TextFormWidget(
+                  text: 'Nombre',
                   obscure: false,
                 ),
-                const SizedBox(
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormWidget(
+                  text: 'Apellido',
+                  obscure: false,
+                ),
+                SizedBox(
                   height: 10,
                 ),
                 //PASSWORD
                 TextFormWidget(
+                  text: 'Email',
+                  obscure: false,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                TextFormWidget(
                   text: 'Password',
                   obscure: true,
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 30,
                 ),
                 //SIGN IN BUTTOJ
                 ButtonWidget(
-                    text: 'Iniciar Sesión',
-                    route: MaterialPageRoute(builder: (_) => HomepageScreen())),
-                const SizedBox(
+                  text: 'Regístrate',
+                  route: MaterialPageRoute(builder: (_) => HomepageScreen()),
+                ),
+                SizedBox(
                   height: 20,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '¿No tienes cuenta?',
+                      '¿Ya tienes una cuenta?',
                       style: TextStyle(
                         color: GlobalColors.textColor,
                         fontWeight: FontWeight.normal,
                       ),
                     ),
                     TextButton(
-                      child: Text(
-                        'Regístrate',
-                        style: TextStyle(
-                            color: GlobalColors.mainColor,
-                            fontWeight: FontWeight.bold),
-                      ),
+                      child: Text('Iniciar Sesión'),
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpScreen()),
-                        );
+                        Navigator.pop(context);
                       },
-                    ),
+                    )
                   ],
                 ),
                 //REGISTER NOW

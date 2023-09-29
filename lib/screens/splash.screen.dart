@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nssystem/screens/login.screen.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:nssystem/screens/signup.screen.dart';
 import 'package:nssystem/utils/global.colors.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: GlobalColors.secondaryColor,
       body: SizedBox(
         width: double.infinity,
         child: Column(
