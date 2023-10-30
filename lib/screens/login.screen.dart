@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nssystem/screens/chief_nurse/cn.home.dart';
+import 'package:nssystem/screens/chief_nurse/cn.homepage.screen.dart';
 import 'package:nssystem/screens/homepage.dart';
 import 'package:nssystem/screens/signup.screen.dart';
 import 'package:nssystem/utils/global.colors.dart';
@@ -19,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: GlobalColors.backgroundColor,
       body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 24),
         child: SafeArea(
           child: Center(
             child: Column(
@@ -61,8 +64,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 //SIGN IN BUTTOJ
                 ButtonWidget(
-                    text: 'Iniciar Sesión',
-                    route: MaterialPageRoute(builder: (_) => HomepageScreen())),
+                  text: 'Iniciar Sesión',
+                  backgroundColor: GlobalColors.mainColor,
+                  textColor: Colors.white,
+                  onPressed: (BuildContext context) {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                  },
+                ),
                 const SizedBox(
                   height: 20,
                 ),
@@ -93,7 +102,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ],
                 ),
-                //REGISTER NOW
               ],
             ),
           ),

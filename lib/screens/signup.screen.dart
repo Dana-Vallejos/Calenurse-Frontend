@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:nssystem/screens/chief_nurse/cn.home.dart';
 import 'package:nssystem/screens/homepage.dart';
 import 'package:nssystem/utils/global.colors.dart';
 import 'package:nssystem/widgets/button.dart';
+import 'package:nssystem/widgets/dropdown.dart';
 import 'package:nssystem/widgets/text.form.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -18,16 +19,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       backgroundColor: GlobalColors.backgroundColor,
       body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(horizontal: 24),
         child: SafeArea(
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image(
+                const Image(
                   image: AssetImage('assets/images/calendurse1.png'),
                   width: 150,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 //hELLO AGAIN
@@ -39,7 +41,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 //eMAIL TEXT
@@ -47,14 +49,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   text: 'Nombre',
                   obscure: false,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextFormWidget(
                   text: 'Apellido',
                   obscure: false,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 //PASSWORD
@@ -62,22 +64,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   text: 'Email',
                   obscure: false,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 TextFormWidget(
                   text: 'Password',
                   obscure: true,
                 ),
-                SizedBox(
+                const SizedBox(
+                  height: 10,
+                ),
+                DropDownButtonWidget(),
+                const SizedBox(
                   height: 30,
                 ),
                 //SIGN IN BUTTOJ
                 ButtonWidget(
-                  text: 'Regístrate',
-                  route: MaterialPageRoute(builder: (_) => HomepageScreen()),
+                  text: 'Iniciar Sesión',
+                  backgroundColor: GlobalColors.mainColor,
+                  textColor: Colors.white,
+                  onPressed: (BuildContext context) {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                  },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Row(

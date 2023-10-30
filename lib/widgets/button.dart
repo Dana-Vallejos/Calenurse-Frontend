@@ -2,39 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:nssystem/utils/global.colors.dart';
 
 class ButtonWidget extends StatelessWidget {
-  const ButtonWidget({
-    super.key,
-    required this.text,
-    required this.route,
-  });
-
   final String text;
-  final Route route;
+  final Color backgroundColor;
+  final Color textColor;
+  final Function onPressed;
+  final double borderRadius;
+
+  ButtonWidget({
+    required this.text,
+    required this.onPressed,
+    this.backgroundColor = Colors.blue,
+    this.textColor = Colors.white,
+    this.borderRadius = 12.0,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // return Padding(
-    //   padding: const EdgeInsets.symmetric(horizontal: 24.0),
-    //   child: Container(
-    //     padding: EdgeInsets.all(20),
-    //     decoration: BoxDecoration(
-    //         color: GlobalColors.mainColor,
-    //         borderRadius: BorderRadius.circular(12)),
-    //     child: Center(
-    //       child: Text(
-    //         text,
-    //         style: TextStyle(
-    //             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-    //       ),
-    //     ),
-    //   ),
-    // );
-
-    return ElevatedButton(
-      onPressed: () {
-        Navigator.push(context, route);
-      },
-      child: Text(text),
+    return Container(
+      width: double.infinity,
+      height: 50,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: backgroundColor,
+          textStyle: TextStyle(color: textColor),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(borderRadius),
+          ),
+        ),
+        onPressed: () => onPressed(context),
+        child: Text(text),
+      ),
     );
   }
 }
