@@ -4,6 +4,7 @@ import 'package:nssystem/model/request.model.dart';
 import 'package:nssystem/screens/chief_nurse/cn.request.detail.screen.dart';
 import 'package:nssystem/utils/global.colors.dart';
 import 'package:nssystem/widgets/shift.card.dart';
+import 'package:get/get.dart';
 
 class RequestCard extends StatelessWidget {
   final RequestCardModel requestCard;
@@ -15,13 +16,14 @@ class RequestCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => RequestDetailsScreen(
-              request: requestDetail,
-            ),
-          ),
+        Get.bottomSheet(
+          RequestDetailsScreen(request: requestDetail),
+          isScrollControlled: true,
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+
+          barrierColor: Colors.black.withOpacity(0.5), // background color
+          enableDrag: true,
         );
       },
       child: Card(

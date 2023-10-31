@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nssystem/utils/global.colors.dart';
 
 class ShiftCard extends StatelessWidget {
   final String shiftName;
@@ -8,25 +9,29 @@ class ShiftCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Column(
-        children: [
-          Row(
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          decoration: BoxDecoration(
+            color: GlobalColors.secondaryColor,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Row(
             children: [
               Icon(Icons.access_time,
                   color: Colors.blue), // Un icono que representa un reloj
               SizedBox(width: 8),
-              Text(shiftName),
+              Column(
+                children: [
+                  Text(shiftName),
+                  Text(shiftTime),
+                ],
+              )
             ],
           ),
-          Text(shiftTime),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

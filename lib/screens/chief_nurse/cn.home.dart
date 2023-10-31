@@ -3,7 +3,6 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:nssystem/screens/chief_nurse/cn.homepage.screen.dart';
 import 'package:nssystem/screens/chief_nurse/cn.notification.screen.dart';
 import 'package:nssystem/screens/chief_nurse/cn.profile.screen.dart';
-
 import 'package:nssystem/screens/chief_nurse/cn.schedule.screen.dart';
 
 class HomeScreen extends StatefulWidget {
