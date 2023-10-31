@@ -21,7 +21,6 @@ class RequestCard extends StatelessWidget {
           isScrollControlled: true,
           backgroundColor: Colors.transparent,
           elevation: 0,
-
           barrierColor: Colors.black.withOpacity(0.5), // background color
           enableDrag: true,
         );
