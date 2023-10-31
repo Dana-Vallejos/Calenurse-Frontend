@@ -24,7 +24,7 @@ class RequestModel {
       previousShift: "00:00 - 08:00",
       newShiftName: "Turno Tarde",
       newShift: "16:00 - 00:00",
-      substituteName: "Alicia Rojas",
+      substituteName: "Eliana Torres",
     ),
     RequestModel(
       name: "Julia",
@@ -33,7 +33,7 @@ class RequestModel {
       previousShift: "00:00 - 08:00",
       newShiftName: "Turno Mañana",
       newShift: "16:00 - 00:00",
-      substituteName: "Alicia Rojas",
+      substituteName: "Eliana Torres",
     )
   ];
 }

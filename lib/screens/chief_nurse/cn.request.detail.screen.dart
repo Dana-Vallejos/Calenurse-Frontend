@@ -16,58 +16,82 @@ class RequestDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: GlobalColors.backgroundColor,
-      appBar: AppBar(
-        elevation: 0,
-        automaticallyImplyLeading: false,
-        title: Center(
-          child: Text(
+    return Container(
+      height: MediaQuery.of(context).size.height *
+          0.9, // Ajusta este valor según la altura que desees
+      margin: EdgeInsets.only(top: 70.0),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(25.0)),
+        color: GlobalColors.backgroundColor,
+      ),
+      child: Scaffold(
+        backgroundColor: GlobalColors.backgroundColor,
+        appBar: AppBar(
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          actions: [
+            IconButton(
+              icon: Icon(Icons.close, color: GlobalColors.textColor),
+              onPressed: () => Get.back(), // Esto cierra el bottom sheet
+            ),
+          ],
+          title: Text(
             'Solicitudes',
             style: TextStyle(
                 color: GlobalColors.textColor,
                 fontWeight: FontWeight.bold,
                 fontSize: 18),
           ),
+          backgroundColor: Colors.transparent,
         ),
-        backgroundColor: Colors.transparent,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 24.0, right: 24.0, bottom: 10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            buildField("Nombre", '${request.name} ${request.lastName}'),
-            SizedBox(height: 20),
-            ShiftCard(
-                shiftName: request.previousShiftName,
-                shiftTime: request.previousShift),
-            SizedBox(height: 20),
-            ShiftCard(
-                shiftName: request.newShiftName, shiftTime: '08:00 - 16:00'),
-            SizedBox(height: 20),
-            buildField("Suplente", '${request.substituteName}'),
-            Spacer(),
-            ButtonWidget(
-              text: 'Rechazar Solicitud',
-              backgroundColor: Colors.red,
-              textColor: Colors.white,
-              onPressed: (BuildContext context) {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => HomeScreen()));
-              },
-            ),
-            SizedBox(height: 20),
-            ButtonWidget(
-              text: 'Aceptar Solicitud',
-              backgroundColor: GlobalColors.mainColor,
-              textColor: Colors.white,
-              onPressed: (BuildContext context) {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => HomeScreen()));
-              },
-            ),
-          ],
+        body: Padding(
+          padding: const EdgeInsets.only(
+              left: 24.0, right: 24.0, bottom: 20, top: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              buildField("Nombre", '${request.name} ${request.lastName}'),
+              const SizedBox(height: 20),
+              Text(
+                "Turno Anterior",
+                style: TextStyle(
+                    color: GlobalColors.textColor, fontWeight: FontWeight.bold),
+              ),
+              ShiftCard(
+                  shiftName: request.previousShiftName,
+                  shiftTime: request.previousShift),
+              const SizedBox(height: 20),
+              Text(
+                "Nuevo Turno",
+                style: TextStyle(
+                    color: GlobalColors.textColor, fontWeight: FontWeight.bold),
+              ),
+              ShiftCard(
+                  shiftName: request.newShiftName, shiftTime: request.newShift),
+              const SizedBox(height: 20),
+              buildField("Suplente", '${request.substituteName}'),
+              const Spacer(),
+              ButtonWidget(
+                text: 'Rechazar Solicitud',
+                backgroundColor: Colors.red,
+                textColor: Colors.white,
+                onPressed: (BuildContext context) {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                },
+              ),
+              SizedBox(height: 20),
+              ButtonWidget(
+                text: 'Aceptar Solicitud',
+                backgroundColor: GlobalColors.mainColor,
+                textColor: Colors.white,
+                onPressed: (BuildContext context) {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
