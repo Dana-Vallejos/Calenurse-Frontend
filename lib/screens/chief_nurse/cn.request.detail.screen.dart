@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nssystem/model/request.model.dart';
 import 'package:nssystem/screens/chief_nurse/cn.home.dart';
+import 'package:nssystem/screens/chief_nurse/cn.profile.screen.dart';
 import 'package:nssystem/utils/global.colors.dart';
 import 'package:nssystem/widgets/button.dart';
 import 'package:nssystem/widgets/field.dart';
@@ -77,7 +78,7 @@ class RequestDetailsScreen extends StatelessWidget {
                 textColor: Colors.white,
                 onPressed: (BuildContext context) {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => CNHomeScreen()));
                 },
               ),
               SizedBox(height: 20),
@@ -87,7 +88,7 @@ class RequestDetailsScreen extends StatelessWidget {
                 textColor: Colors.white,
                 onPressed: (BuildContext context) {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => ProfileScreen()));
                 },
               ),
             ],

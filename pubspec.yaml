@@ -41,6 +41,7 @@ dependencies:
   google_fonts: ^4.0.0
   google_nav_bar: ^5.0.6
   line_icons: ^2.0.1
+  flutter_launcher_icons: ^0.10.0
 
 dev_dependencies:
   flutter_test:
@@ -94,3 +95,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/calendurse1.png"

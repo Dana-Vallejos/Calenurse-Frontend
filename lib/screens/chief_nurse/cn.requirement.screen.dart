@@ -31,9 +31,10 @@ class RequirementTab extends StatelessWidget {
                   color: GlobalColors.textColor, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 5),
-            TextFormWidget(
-              text: "Ingrese número de enfermeras",
-              obscure: false,
+            TextFieldWidget(
+              labelText: 'Número de Enfermeras',
+              hintText: 'Ingrese número de enfermeras',
+              obscureText: false,
             ),
             SizedBox(height: 20),
             Text(
@@ -42,9 +43,10 @@ class RequirementTab extends StatelessWidget {
                   color: GlobalColors.textColor, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 5),
-            TextFormWidget(
-              text: "Ingrese número de enfermeras",
-              obscure: false,
+            TextFieldWidget(
+              labelText: 'Número de Enfermeras',
+              hintText: 'Ingrese número de enfermeras',
+              obscureText: false,
             ),
             SizedBox(height: 20),
             Text(
@@ -53,9 +55,10 @@ class RequirementTab extends StatelessWidget {
                   color: GlobalColors.textColor, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 5),
-            TextFormWidget(
-              text: "Ingrese número de enfermeras",
-              obscure: false,
+            TextFieldWidget(
+              labelText: 'Número de Enfermeras',
+              hintText: 'Ingrese número de enfermeras',
+              obscureText: false,
             ),
             SizedBox(height: 50),
             Center(
@@ -65,7 +68,7 @@ class RequirementTab extends StatelessWidget {
                 textColor: Colors.white,
                 onPressed: (BuildContext context) {
                   Navigator.of(context).push(
-                      MaterialPageRoute(builder: (context) => HomeScreen()));
+                      MaterialPageRoute(builder: (context) => CNHomeScreen()));
                 },
               ),
             ),

@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:nssystem/utils/global.colors.dart';
 
-class TextFormWidget extends StatelessWidget {
-  const TextFormWidget({
+class TextFieldWidget extends StatelessWidget {
+  const TextFieldWidget({
     super.key,
-    required this.text,
-    required this.obscure,
+    required this.labelText,
+    required this.hintText,
+    required this.obscureText,
+    this.controller,
   });
 
-  final String text;
-  final bool obscure;
+  final String labelText;
+  final String hintText;
+  final bool obscureText;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: GlobalColors.secondaryColor,
-          border: Border.all(color: Colors.white),
-          borderRadius: BorderRadius.circular(12)),
+        color: GlobalColors.secondaryColor,
+        border: Border.all(color: Colors.white),
+        borderRadius: BorderRadius.circular(12),
+      ),
       child: Padding(
-        padding: const EdgeInsets.only(left: 20.0, top: 5.0, bottom: 5.0),
-        child: TextField(
-          obscureText: obscure,
+        padding: const EdgeInsets.only(left: 20.0),
+        child: TextFormField(
+          controller: controller,
+          obscureText: obscureText,
           decoration: InputDecoration(
             border: InputBorder.none,
-            hintText: text,
+            labelText: labelText,
+            hintText: hintText,
           ),
         ),
       ),

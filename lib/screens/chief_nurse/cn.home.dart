@@ -5,14 +5,14 @@ import 'package:nssystem/screens/chief_nurse/cn.notification.screen.dart';
 import 'package:nssystem/screens/chief_nurse/cn.profile.screen.dart';
 import 'package:nssystem/screens/chief_nurse/cn.schedule.screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class CNHomeScreen extends StatefulWidget {
+  const CNHomeScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<CNHomeScreen> createState() => _CNHomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _CNHomeScreenState extends State<CNHomeScreen> {
   int _currentindex = 0;
 
   static List<Widget> _widgetOptions = <Widget>[
