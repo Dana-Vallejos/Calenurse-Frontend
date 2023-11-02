@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:nssystem/utils/global.colors.dart';
 
-class DropDownButtonWidget extends StatelessWidget {
-  const DropDownButtonWidget({super.key});
+class DropDownButtonWidget extends StatefulWidget {
+  final Function(String) onSelected;
+  const DropDownButtonWidget({super.key, required this.onSelected});
+
+  @override
+  State<DropDownButtonWidget> createState() => _DropDownButtonWidgetState();
+}
+
+class _DropDownButtonWidgetState extends State<DropDownButtonWidget> {
+  String _selected = "Enfermera";
 
   @override
   Widget build(BuildContext context) {
-    String _selected = "Enfermera";
-
     return DecoratedBox(
       decoration: BoxDecoration(
         color: GlobalColors.secondaryColor,
@@ -28,7 +34,14 @@ class DropDownButtonWidget extends StatelessWidget {
               value: "Jefa de Enfermeras",
             )
           ],
-          onChanged: (value) {},
+          onChanged: (String? newValue) {
+            if (newValue != null) {
+              setState(() {
+                _selected = newValue;
+              });
+              widget.onSelected(newValue);
+            }
+          },
           isExpanded: true,
           underline: Container(),
         ),
