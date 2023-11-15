@@ -1,4 +1,6 @@
+import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:nssystem/utils/global.colors.dart';
 import 'package:nssystem/widgets/card.turno.manana.dart';
 
@@ -10,6 +12,7 @@ class HomepageCN extends StatefulWidget {
 }
 
 class _HomepagCNState extends State<HomepageCN> {
+  DateTime _selectedDate = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,6 +41,28 @@ class _HomepagCNState extends State<HomepageCN> {
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 15.0),
         children: [
+          Container(
+            child: DatePicker(
+              DateTime.now(),
+              height: 100,
+              width: 80,
+              initialSelectedDate: DateTime.now(),
+              selectionColor: GlobalColors.mainColor,
+              selectedTextColor: Colors.white,
+              dateTextStyle: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey),
+              monthTextStyle: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey),
+              onDateChange: (date) {
+                _selectedDate = date;
+              },
+            ),
+          ),
+          const SizedBox(height: 10),
           Text(
             "Horario",
             style: TextStyle(
