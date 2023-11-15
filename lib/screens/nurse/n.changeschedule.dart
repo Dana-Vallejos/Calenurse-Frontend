@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:nssystem/screens/chief_nurse/cn.home.dart';
+import 'package:nssystem/screens/nurse/n.home.dart';
 import 'package:nssystem/utils/global.colors.dart';
 import 'package:nssystem/widgets/button.dart';
 import 'package:nssystem/widgets/field.dart';
 import 'package:nssystem/widgets/shifcard.edit.dart';
 
 class ChangeScheduleNurse extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,15 +40,12 @@ class ChangeScheduleNurse extends StatelessWidget {
             children: [
               buildField("Nombre", 'Katerin Villalobos'),
               const SizedBox(height: 20),
-
               Text(
                 "Nuevo Turno",
                 style: TextStyle(
                     color: GlobalColors.textColor, fontWeight: FontWeight.bold),
               ),
-              ShiftCardEdit(
-                  shiftName: "Vanessa",
-                  shiftTime: "13:00 - 19:00"),
+              ShiftCardEdit(shiftName: "Vanessa", shiftTime: "13:00 - 19:00"),
               const SizedBox(height: 20),
               buildField("Suplente", 'Isabel '),
               const Spacer(),
@@ -72,7 +69,6 @@ class ChangeScheduleNurse extends StatelessWidget {
                 },
               ),
             ],
-
           ),
         ),
       ),

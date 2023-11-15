@@ -3,6 +3,7 @@ import 'package:nssystem/screens/chief_nurse/cn.home.dart';
 import 'package:nssystem/screens/chief_nurse/cn.homepage.screen.dart';
 import 'package:nssystem/screens/chief_nurse/cn.profile.screen.dart';
 import 'package:nssystem/screens/homepage.dart';
+import 'package:nssystem/screens/nurse/n.home.dart';
 import 'package:nssystem/utils/global.colors.dart';
 import 'package:nssystem/widgets/button.dart';
 import 'package:nssystem/widgets/dropdown.dart';
@@ -135,8 +136,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       );
                     } else {
                       Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => ProfileScreen()),
+                        MaterialPageRoute(builder: (context) => HomeScreen()),
                       );
                     }
                   },
