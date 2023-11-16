@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nssystem/utils/global.colors.dart';
 import 'package:nssystem/widgets/card.turno.manana.dart';
+import 'package:nssystem/widgets/card.turno.noche.dart';
+import 'package:nssystem/widgets/card.turno.tarde.dart';
 
 class HomepageCN extends StatefulWidget {
   const HomepageCN({super.key});
@@ -89,7 +91,7 @@ class _HomepagCNState extends State<HomepageCN> {
                 fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
-          CardManana(),
+          CardTarde(),
           const SizedBox(height: 10),
           Text(
             "Turno Noche (00:00-08:00)",
@@ -99,7 +101,7 @@ class _HomepagCNState extends State<HomepageCN> {
                 fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
-          CardManana(),
+          CardNoche(),
         ],
       ),
     );
