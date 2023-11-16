@@ -19,7 +19,7 @@ class CardManana extends StatelessWidget {
           return Padding(
             padding: EdgeInsets.symmetric(vertical: 5.0),
             child: Text(
-              manana.name,
+              manana.name + " " + manana.lastName,
               style: TextStyle(
                   color: GlobalColors.textColor, fontWeight: FontWeight.w500),
             ),
