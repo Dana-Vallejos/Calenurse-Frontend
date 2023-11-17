@@ -23,6 +23,7 @@ class ShiftCard extends StatelessWidget {
                   color: Colors.blue), // Un icono que representa un reloj
               SizedBox(width: 8),
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(shiftName),
                   Text(shiftTime),

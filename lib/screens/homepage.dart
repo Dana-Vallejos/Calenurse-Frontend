@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nssystem/utils/global.colors.dart';
+import 'package:nssystem/widgets/shift.card.dart';
 
 class HomepageScreen extends StatefulWidget {
   const HomepageScreen({super.key});
@@ -30,7 +31,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
             Text(
               "Veamos el horario de hoy",
               style: TextStyle(color: GlobalColors.mainColor, fontSize: 20),
-            )
+            ),
           ],
         ),
       ),

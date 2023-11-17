@@ -2,9 +2,9 @@ import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+import 'package:nssystem/widgets/shift.card.dart';
 
 import '../../utils/global.colors.dart';
-
 
 class HomePageNurse extends StatefulWidget {
   const HomePageNurse({Key? key}) : super(key: key);
@@ -30,30 +30,51 @@ class _HomePageNurseState extends State<HomePageNurse> {
             }),
       ),
       body: Column(
-          children: [
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           _addTaskBar(),
-      Container(
-        margin: const EdgeInsets.only(top: 20, left: 20),
-        child: DatePicker(
-          DateTime.now(),
-          height: 100,
-          width: 80,
-          initialSelectedDate: DateTime.now(),
-          selectionColor: GlobalColors.mainColor,
-          selectedTextColor: Colors.white,
-          dateTextStyle: GoogleFonts.poppins(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-              color: Colors.grey),
-          monthTextStyle: GoogleFonts.poppins(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-              color: Colors.grey),
-          onDateChange: (date) {
-            _selectedDate = date;
-          },
-        )
-      )
+          Container(
+            margin: const EdgeInsets.only(top: 20, left: 20),
+            child: DatePicker(
+              DateTime.now(),
+              height: 100,
+              width: 80,
+              initialSelectedDate: DateTime.now(),
+              selectionColor: GlobalColors.mainColor,
+              selectedTextColor: Colors.white,
+              dateTextStyle: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey),
+              monthTextStyle: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey),
+              onDateChange: (date) {
+                _selectedDate = date;
+              },
+            ),
+          ),
+          const SizedBox(height: 30),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  "Horario de hoy",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                const SizedBox(height: 10),
+                Container(
+                  child: ShiftCard(
+                    shiftName: "Tarde",
+                    shiftTime: '12:00-8:00',
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
@@ -81,7 +102,6 @@ _addTaskBar() {
             ],
           ),
         ),
-
       ],
     ),
   );
