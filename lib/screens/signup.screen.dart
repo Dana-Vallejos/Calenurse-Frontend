@@ -62,17 +62,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   height: 20,
                 ),
                 //EMAIL TEXT
-                EmailFormField(
-                  controller: _emailController,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Por favor ingresa un email';
-                    }
-                    if (!value.contains('@')) {
-                      return 'Por favor ingresa un email válido';
-                    }
-                    return null;
-                  },
+                TextFieldWidget(
+                  labelText: 'Nombre',
+                  hintText: 'Ingrese su nombre',
+                  obscureText: false,
                 ),
                 const SizedBox(
                   height: 10,
