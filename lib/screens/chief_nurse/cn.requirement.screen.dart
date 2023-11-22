@@ -66,7 +66,7 @@ class RequirementTab extends StatelessWidget {
                 text: 'Generar Horario',
                 backgroundColor: GlobalColors.mainColor,
                 textColor: Colors.white,
-                onPressed: (BuildContext context) {
+                onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => CNHomeScreen()));
                 },

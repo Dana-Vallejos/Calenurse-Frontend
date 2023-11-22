@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nssystem/screens/chief_nurse/cn.home.dart';
-import 'package:nssystem/screens/chief_nurse/cn.homepage.screen.dart';
 import 'package:nssystem/screens/homepage.dart';
+import 'package:nssystem/screens/nurse/n.home.dart';
 import 'package:nssystem/screens/signup.screen.dart';
+import 'package:nssystem/services/services.dart';
 import 'package:nssystem/utils/global.colors.dart';
 import 'package:nssystem/widgets/button.dart';
 import 'package:nssystem/widgets/email.form.field.dart';
 import 'package:nssystem/widgets/password.form.field.dart';
-import 'package:nssystem/widgets/text.form.dart';
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({super.key});
@@ -21,6 +21,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+
+  final ApiService apiService = ApiService(); // Instancia de ApiService
 
   @override
   void dispose() {
@@ -95,10 +97,31 @@ class _LoginScreenState extends State<LoginScreen> {
                     text: 'Iniciar Sesión',
                     backgroundColor: GlobalColors.mainColor,
                     textColor: Colors.white,
-                    onPressed: (BuildContext context) {
+                    onPressed: () async {
                       if (_formKey.currentState?.validate() ?? false) {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => CNHomeScreen()));
+                        // Llamada al servicio de inicio de sesión
+                        final response = await apiService.loginUser(
+                          _emailController.text,
+                          _passwordController.text,
+                        );
+
+                        if (response.statusCode == 200) {
+                          // Si la respuesta es exitosa, navega a la siguiente pantalla
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => CNHomeScreen(),
+                          ));
+                        } else if (response.statusCode == 401) {
+                          // Si el usuario no está registrado o la contraseña es incorrecta
+                          final snackBar = SnackBar(
+                              content: Text(
+                                  'Correo electrónico o contraseña incorrecta'));
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        } else {
+                          // Para otros códigos de estado o errores
+                          final snackBar = SnackBar(
+                              content: Text('Error de inicio de sesión'));
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        }
                       }
                     },
                   ),

@@ -76,7 +76,7 @@ class RequestDetailsScreen extends StatelessWidget {
                 text: 'Rechazar Solicitud',
                 backgroundColor: Colors.red,
                 textColor: Colors.white,
-                onPressed: (BuildContext context) {
+                onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => CNHomeScreen()));
                 },
@@ -86,7 +86,7 @@ class RequestDetailsScreen extends StatelessWidget {
                 text: 'Aceptar Solicitud',
                 backgroundColor: GlobalColors.mainColor,
                 textColor: Colors.white,
-                onPressed: (BuildContext context) {
+                onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => ProfileScreen()));
                 },

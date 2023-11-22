@@ -4,6 +4,7 @@ import 'package:nssystem/screens/chief_nurse/cn.homepage.screen.dart';
 import 'package:nssystem/screens/chief_nurse/cn.profile.screen.dart';
 import 'package:nssystem/screens/homepage.dart';
 import 'package:nssystem/screens/nurse/n.home.dart';
+import 'package:nssystem/services/services.dart';
 import 'package:nssystem/utils/global.colors.dart';
 import 'package:nssystem/widgets/button.dart';
 import 'package:nssystem/widgets/dropdown.dart';
@@ -19,16 +20,41 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  final TextEditingController _nameController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _textController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final ApiService _apiService = ApiService();
 
   String _selectedRole = "Enfermera";
+  String _selectedArea = "Ginecología";
 
   @override
   void dispose() {
+    _nameController.dispose();
+    _phoneController.dispose();
     _emailController.dispose();
-    _textController.dispose();
+    _passwordController.dispose();
     super.dispose();
+  }
+
+  void _registerUser() async {
+    var response = await _apiService.registerUser(
+      _nameController.text,
+      _phoneController.text,
+      _emailController.text,
+      _passwordController.text,
+      _selectedRole,
+      _selectedArea,
+    );
+
+    if (response.statusCode == 200) {
+      // Manejo de respuesta exitosa
+      print('Registro exitoso');
+    } else {
+      // Manejo de error
+      print('Error en el registro: ${response.body}');
+    }
   }
 
   @override
@@ -122,17 +148,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   text: 'Registrarse',
                   backgroundColor: GlobalColors.mainColor,
                   textColor: Colors.white,
-                  onPressed: (BuildContext context) {
-                    if (_selectedRole == "Jefa de Enfermeras") {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => CNHomeScreen()),
-                      );
-                    } else {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomeScreen()),
-                      );
-                    }
-                  },
+                  onPressed: _registerUser,
                 ),
                 const SizedBox(
                   height: 20,

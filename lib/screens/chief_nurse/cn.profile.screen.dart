@@ -43,7 +43,7 @@ class ProfileScreen extends StatelessWidget {
                 text: 'Cambiar Contraseña',
                 backgroundColor: Colors.red,
                 textColor: Colors.white,
-                onPressed: (BuildContext context) {
+                onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => LoginScreen()));
                 },
@@ -53,7 +53,7 @@ class ProfileScreen extends StatelessWidget {
                 text: 'Cerrar Sesión',
                 backgroundColor: GlobalColors.mainColor,
                 textColor: Colors.white,
-                onPressed: (BuildContext context) {
+                onPressed: () {
                   Navigator.of(context).push(
                       MaterialPageRoute(builder: (context) => LoginScreen()));
                 },
