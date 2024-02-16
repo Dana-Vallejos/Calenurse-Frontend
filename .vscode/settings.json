@@ -3,5 +3,6 @@
         "Cerrar",
         "Noche",
         "sesión"
-    ]
+    ],
+    "dart.flutterSdkPath": "C:\\src\\flutter"
 }

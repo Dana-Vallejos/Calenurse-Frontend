@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nssystem/screens/chief_nurse/cn.home.dart';
-import 'package:nssystem/screens/chief_nurse/cn.homepage.screen.dart';
-import 'package:nssystem/screens/chief_nurse/cn.profile.screen.dart';
-import 'package:nssystem/screens/homepage.dart';
-import 'package:nssystem/screens/nurse/n.home.dart';
-import 'package:nssystem/services/services.dart';
+import 'package:nssystem/services/auth_service.dart';
 import 'package:nssystem/utils/global.colors.dart';
 import 'package:nssystem/widgets/button.dart';
 import 'package:nssystem/widgets/dropdown.dart';
@@ -24,7 +19,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _phoneController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final ApiService _apiService = ApiService();
+  final AuthService _apiService = AuthService();
 
   String _selectedRole = "Enfermera";
   String _selectedArea = "Ginecología";
@@ -39,22 +34,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }
 
   void _registerUser() async {
-    var response = await _apiService.registerUser(
+    var response = await _apiService.register(
       _nameController.text,
-      _phoneController.text,
-      _emailController.text,
       _passwordController.text,
-      _selectedRole,
-      _selectedArea,
+      _nameController.text,
+      0, // TODO: SEE BACK
+      _emailController.text,
+      true,
+      0,
     );
 
-    if (response.statusCode == 200) {
-      // Manejo de respuesta exitosa
-      print('Registro exitoso');
-    } else {
-      // Manejo de error
-      print('Error en el registro: ${response.body}');
-    }
+    //if (response.statusCode == 200) {
+    //  // Manejo de respuesta exitosa
+    //  print('Registro exitoso');
+    //} else {
+    //  // Manejo de error
+    //  print('Error en el registro: ${response.body}');
+    //}
   }
 
   @override
